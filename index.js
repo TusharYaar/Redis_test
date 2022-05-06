@@ -6,6 +6,8 @@ const redis_local = require("./connections/redis_local");
 const redis_cloud = require("./connections/redis_cloud");
 const mongo_cloud = require("./connections/mongo_cloud");
 
+const PORT = process.env.PORT || 3000;
+
 const app = express();
 
 var jsonParser = bodyParser.json();
@@ -63,6 +65,6 @@ app.get("/get/:db/:key", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("listening on port 3000");
 });
